@@ -1,0 +1,22 @@
+version: '3'
+services:
+  directus:
+    image: directus/directus:latest
+    ports:
+      - "8055:8055"
+    environment:
+      KEY: "jason"
+      SECRET: "nacho"
+      DB_CLIENT: "sqlite3"
+      DB_FILENAME: "/directus/database/database.sqlite"
+      EXTENSIONS_AUTO_RELOAD: "true"
+      CHOKIDAR_USEPOLLING: "true"
+      CHOKIDAR_INTERVAL: "2000"
+    volumes:
+      - ./database:/directus/database
+      - ./uploads:/directus/uploads
+      - ./extensions:/directus/extensions
+    restart: always
+
+volumes:
+  directus-db:

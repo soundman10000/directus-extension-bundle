@@ -17,6 +17,7 @@ export default defineComponent({
 		return { handleChange };
 
 		function handleChange(value: string): void {
+			console.log('working')
 			emit('input', value);
 		}
 	},
